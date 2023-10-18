@@ -27,10 +27,6 @@ gcov_report:
 	genhtml *.info -o ./gcov_report 
 	rm -rf *.gcda *.gcno *.info result a.out 
 
-style:
-	clang-format -style=Google -i $(STYLE)
-	clang-format -style=Google -n $(STYLE)
-
 clean:
 	-rm -rf *.o
 	-rm -rf *.a
@@ -41,5 +37,3 @@ clean:
 	-rm -rf *.out
 	-rm -rf gcov_report 
 
-mem: test
-	valgrind --tool=memcheck --leak-check=yes ./test.out
